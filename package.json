@@ -1,0 +1,11 @@
+{
+  "name": "typescript-handbook",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:liuernan/typescript-handbook.git",
+  "author": "liuernan <liujiaweidreamer@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.11.12"
+  }
+}
