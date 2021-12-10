@@ -1,7 +1,9 @@
-const greeter = (name: string) => {
-  console.log("Hello, " + name);
-};
+{
+  const greeter = (name: string) => {
+    console.log("Hello, " + name);
+  };
 
-const user = "Ernan";
+  const user = "Ernan";
 
-greeter(user);
+  greeter(user);
+}
