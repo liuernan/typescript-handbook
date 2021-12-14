@@ -8,5 +8,14 @@ import { argv } from "process";
     return a + b;
   };
 
-  add(Number(argv[2]), Number(argv[3]));
+  const a = Number(argv[2]);
+  const b = Number(argv[3]);
+
+  if (isNaN(a) || isNaN(b)) {
+    console.error("error: only number can be send");
+    process.exit(1);
+  }
+
+  add(a, b);
+  process.exit(0);
 }
