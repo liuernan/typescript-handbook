@@ -120,7 +120,7 @@
         default:
           break;
       }
-      return result.toPrecision(6);
+      return result.toPrecision(12);
     }
   }
 
