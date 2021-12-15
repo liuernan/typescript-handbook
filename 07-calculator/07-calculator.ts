@@ -10,8 +10,9 @@
       ['1', '2', '3', '+'],
       ['0', '.', '='],
     ];
-    n1: string;
-    n2: string;
+    n1: string = '';
+    n2: string = '';
+    operator: string = '';
     result: string = '0';
     constructor() {
       this.createContainer();
@@ -57,9 +58,69 @@
     bindEvents(): void {
       this.$oper.addEventListener('click', (e) => {
         if (e.target instanceof HTMLButtonElement) {
-          console.log(e.target.textContent);
+          const content = e.target.textContent;
+          if ('0123456789.'.indexOf(content) >= 0) {
+            if (this.operator) {
+              this.n2 += content;
+              this.$result.textContent = this.n2;
+            } else {
+              this.result = '';
+              this.n1 += content;
+              this.$result.textContent = this.n1;
+            }
+          } else if ('+-×÷'.indexOf(content) >= 0) {
+            if (this.result) {
+              this.n1 = this.result;
+              this.result = '';
+            }
+            this.operator = content;
+          } else if ('='.indexOf(content) >= 0) {
+            this.result = this.removeZero(
+              this.getResult(this.n1, this.n2, this.operator)
+            );
+            this.$result.textContent = this.result;
+            this.n1 = '';
+            this.n2 = '';
+            this.operator = '';
+          } else if (content === 'Clear') {
+            this.n1 = '';
+            this.n2 = '';
+            this.operator = '';
+            this.result = '';
+            this.$result.textContent = '0';
+          }
+          console.log(this.n1, this.operator, this.n2);
         }
       });
+    }
+    removeZero(string: string) {
+      return string.replace(/.0+$/g, '').replace(/\.0+e/, 'e');
+    }
+    getResult(n1: string, n2: string, operator: string): string {
+      const numberN1: number = parseFloat(n1);
+      const numberN2: number = parseFloat(n2);
+      let result = 0;
+      switch (operator) {
+        case '+':
+          result = numberN1 + numberN2;
+          break;
+        case '-':
+          result = numberN1 - numberN2;
+          break;
+        case '×':
+          result = numberN1 * numberN2;
+          break;
+        case '÷':
+          if (numberN2 === 0) {
+            return '不是数字';
+          } else {
+            result = numberN1 / numberN2;
+          }
+          break;
+        default:
+          break;
+      }
+      return result.toPrecision(6);
     }
   }
 
