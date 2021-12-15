@@ -1,0 +1,25 @@
+.calc-container {
+  display: inline-block;
+  margin: 6em;
+}
+
+.calc-container .calc-output {
+  border: 1px solid pink;
+  height: 6em;
+}
+
+.calc-container .calc-oper {
+  display: inline-block;
+}
+
+.calc-container button {
+  width: 6em;
+  height: 6em;
+}
+
+.calc-container button.button-clear {
+  width: 18em;
+}
+.calc-container button.button-0 {
+  width: 12em;
+}
