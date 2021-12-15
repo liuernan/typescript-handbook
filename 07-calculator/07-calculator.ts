@@ -82,7 +82,7 @@
             this.n1 = '';
             this.n2 = '';
             this.operator = '';
-          } else if (content === 'Clear') {
+          } else if (content === 'clear') {
             this.n1 = '';
             this.n2 = '';
             this.operator = '';

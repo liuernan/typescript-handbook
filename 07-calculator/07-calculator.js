@@ -79,7 +79,7 @@
                         _this.n2 = '';
                         _this.operator = '';
                     }
-                    else if (content === 'Clear') {
+                    else if (content === 'clear') {
                         _this.n1 = '';
                         _this.n2 = '';
                         _this.operator = '';
