@@ -6,6 +6,14 @@
 .calc-container .calc-output {
   border: 1px solid pink;
   height: 6em;
+  position: relative;
+}
+
+.calc-container .calc-output > span {
+  position: absolute;
+  bottom: 0;
+  right: 0.2em;
+  font-size: 3em;
 }
 
 .calc-container .calc-oper {
