@@ -1,6 +1,6 @@
 {
   class Person {
-    constructor(public name: string) {}
+    constructor(public name: string) {} // equals: this.name = name
     say(word: string): void {
       console.log(`hi there, I am ${this.name} and did u say "${word}"`);
     }
