@@ -57,4 +57,20 @@
 
   const shark = new Animal('shark');
   shark.introduce();
+
+  // static
+  class Dog {
+    static change(): void {
+      console.log('我只能作为 Dog 的一个对象属性被访问到');
+    }
+    constructor(public name: string) {
+      // this.change() // error
+    }
+  }
+
+  const dog = new Dog('二狗');
+  console.log(dog.name);
+  // dog.change() // error
+
+  Dog.change();
 }
