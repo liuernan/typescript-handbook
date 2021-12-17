@@ -1,3 +1,5 @@
+import { sign } from 'crypto';
+
 {
   class Person {
     constructor(public name: string) {} // equals: this.name = name
@@ -9,8 +11,10 @@
   const xiaoming = new Person('xiaoming');
   xiaoming.say('你好！');
 
-  // class extends
-  // public(default) private protected
+  /**
+   * class extends
+   * public(default) private protected
+   */
   enum SpecieTypes {
     animal = 'animal',
     human = 'human',
@@ -58,7 +62,9 @@
   const shark = new Animal('shark');
   shark.introduce();
 
-  // static
+  /**
+   * static
+   */
   class Dog {
     static change(): void {
       console.log('我只能作为 Dog 的一个对象属性被访问到');
@@ -73,4 +79,25 @@
   // dog.change() // error
 
   Dog.change();
+
+  /**
+   * get/set
+   */
+  class Rectangle {
+    _name = 'noname'; // usually set as private
+    get name() {
+      return '就不告诉你';
+    }
+    set name(v: string) {
+      this._name = v;
+    }
+    constructor(public width: number, public height: number) {}
+  }
+
+  const s1 = new Rectangle(1, 2);
+  console.log(s1._name);
+  console.log(s1.name);
+  s1.name = '正方形的圆';
+  console.log(s1._name);
+  console.log(s1.name);
 }
